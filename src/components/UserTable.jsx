@@ -2,12 +2,13 @@ import React from 'react'
 
 const UserTable = (props) => {
 
-  console.log(props.users);
+ console.log(props.users);
 
   return(
   <table>
     <thead>
       <tr>
+        <th>id</th>
         <th>Name</th>
         <th>Username</th>
         <th>Actions</th>
@@ -18,10 +19,13 @@ const UserTable = (props) => {
   props.users.length > 0 ?
   props.users.map( user => (
     <tr key={user.id}>
+    <td>{user.id}</td>
     <td>{user.name}</td>
     <td>{user.username}</td>
     <td>
-      <button className="button muted-button">Edit</button>
+      <button className="button muted-button"
+      onClick={() => {props.editRow(user)}}
+      >Edit</button>
       <button className="button muted-button"
       onClick={() => {props.deleteUsr(user.id)}}
       >Delete</button>
