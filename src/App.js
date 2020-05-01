@@ -23,6 +23,13 @@ function App() {
     ])
   }
 
+  //eliminar usr
+  const deleteUsr = id => {
+    //console.log(id);
+
+    setUsers(users.filter(user => user.id !== id))
+  }
+
   return (
     <div className="container">
       <h1>CRUD App with Hooks</h1>
@@ -31,7 +38,7 @@ function App() {
           <AddUserForm addUsr={addUsr}/>
         </div>
         <div className="flex-large">
-          <UserTable users={users}></UserTable>
+          <UserTable users={users} deleteUsr={deleteUsr}></UserTable>
         </div>
       </div>
     </div>
